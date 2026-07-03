@@ -1,13 +1,19 @@
+"use client";
+
 import styles from "./Career.module.css";
+import { useReveal } from "../lib/hooks/useReveal";
 
 export function Career() {
+  const { ref, seen } = useReveal<HTMLDivElement>();
+  const pathClass = `${styles.pathAnim} ${seen ? styles.on : ""}`.trim();
+
   return (
     <section className={styles.section} id="work">
       <div className={styles.head}>
         <h2>The <em>trajectory</em>, drawn on two axes.</h2>
         <div className={styles.meta}>Fig. 02 · Timeline<br />1cm = 1yr</div>
       </div>
-      <div className={styles.wrap}>
+      <div className={styles.wrap} ref={ref}>
         <svg viewBox="0 -40 1200 600" preserveAspectRatio="none" className={styles.svg}>
           {/* baseline */}
           <line x1="80" y1="480" x2="1120" y2="480" stroke="var(--hair)" />
@@ -20,11 +26,11 @@ export function Career() {
           ))}
 
           {/* Tech track (dashed teal) */}
-          <path fill="none" stroke="var(--signal)" strokeWidth="1.5" strokeDasharray="6 4"
+          <path className={pathClass} fill="none" stroke="var(--signal)" strokeWidth="1.5" strokeDasharray="6 4"
             d="M120 430 C 200 420, 260 380, 290 350 C 340 320, 420 300, 470 270 C 520 250, 590 220, 620 180 C 680 160, 740 130, 810 110 C 880 105, 960 105, 1020 105" />
 
           {/* People/leadership track (solid rust) */}
-          <path fill="none" stroke="var(--accent)" strokeWidth="2"
+          <path className={pathClass} fill="none" stroke="var(--accent)" strokeWidth="2"
             d="M290 450 C 350 440, 420 435, 470 420 C 540 400, 590 370, 620 320 C 680 260, 740 180, 810 130 C 870 80, 960 50, 1020 40" />
 
           {/* Nodes */}

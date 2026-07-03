@@ -50,3 +50,14 @@
   background-image: linear-gradient(90deg, var(--signal) 60%, transparent 60%);
   background-size: 8px 100%;
 }
+
+/* Trajectory path draw-on-scroll.
+   Dasharray/offset are large enough to swallow both tracks; the .on
+   class ticks the offset to 0 so each path draws itself over 2s the
+   first time the SVG enters the viewport. */
+.pathAnim {
+  stroke-dasharray: 3000;
+  stroke-dashoffset: 3000;
+  transition: stroke-dashoffset 2s ease;
+}
+.on { stroke-dashoffset: 0 !important; }
