@@ -1,5 +1,31 @@
 import type { Metadata } from "next";
+import { Fraunces, JetBrains_Mono, Inter, Caveat } from "next/font/google";
 import "./globals.css";
+
+const fraunces = Fraunces({
+  subsets: ["latin"],
+  variable: "--font-fraunces",
+  axes: ["opsz"],
+  display: "swap",
+});
+
+const jetbrains = JetBrains_Mono({
+  subsets: ["latin"],
+  variable: "--font-mono",
+  display: "swap",
+});
+
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-sans",
+  display: "swap",
+});
+
+const caveat = Caveat({
+  subsets: ["latin"],
+  variable: "--font-caveat",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   title: "Bijin Abraham",
@@ -11,7 +37,10 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en">
+    <html
+      lang="en"
+      className={`${fraunces.variable} ${jetbrains.variable} ${inter.variable} ${caveat.variable}`}
+    >
       <body>{children}</body>
     </html>
   );
