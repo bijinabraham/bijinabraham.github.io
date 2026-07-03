@@ -1,0 +1,13 @@
+.footer {
+  padding: 60px 40px 40px;
+  border-top: 1px solid var(--hair);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--dim);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  display: flex;
+  justify-content: space-between;
+  z-index: 3;
+  position: relative;
+}
