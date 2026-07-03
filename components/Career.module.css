@@ -61,3 +61,11 @@
   transition: stroke-dashoffset 2s ease;
 }
 .on { stroke-dashoffset: 0 !important; }
+
+/* Tech track fades in instead of drawing. Preserves the visible
+   strokeDasharray "6 4" that pathAnim would otherwise overwrite. */
+.techTrack {
+  opacity: 0;
+  transition: opacity 1.4s ease 0.4s;
+}
+.techTrack.on { opacity: 1; }

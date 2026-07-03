@@ -25,8 +25,11 @@ export function Career() {
             </g>
           ))}
 
-          {/* Tech track (dashed teal) */}
-          <path className={pathClass} fill="none" stroke="var(--signal)" strokeWidth="1.5" strokeDasharray="6 4"
+          {/* Tech track (dashed teal). Fades in rather than draws — the
+              visible strokeDasharray "6 4" clashes with the pathAnim class
+              that hijacks stroke-dasharray for the draw effect. */}
+          <path className={`${styles.techTrack} ${seen ? styles.on : ""}`.trim()}
+            fill="none" stroke="var(--signal)" strokeWidth="1.5" strokeDasharray="6 4"
             d="M120 430 C 200 420, 260 380, 290 350 C 340 320, 420 300, 470 270 C 520 250, 590 220, 620 180 C 680 160, 740 130, 810 110 C 880 105, 960 105, 1020 105" />
 
           {/* People/leadership track (solid rust) */}
