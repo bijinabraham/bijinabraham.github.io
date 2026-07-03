@@ -1,3 +1,4 @@
+import { SiteStateProvider } from "@/lib/hooks/SiteStateProvider";
 import { Nav } from "@/components/Nav";
 import { Hero } from "@/components/Hero";
 import { Career } from "@/components/Career";
@@ -10,16 +11,18 @@ import { Footer } from "@/components/Footer";
 
 export default function Home() {
   return (
-    <main>
-      <Nav />
-      <Hero />
-      <Career />
-      <Metrics />
-      <Skills />
-      <Projects />
-      <Writing />
-      <Contact />
-      <Footer />
-    </main>
+    <SiteStateProvider>
+      <main>
+        <Nav />
+        <Hero />
+        <Career />
+        <Metrics />
+        <Skills />
+        <Projects />
+        <Writing />
+        <Contact />
+        <Footer />
+      </main>
+    </SiteStateProvider>
   );
 }
