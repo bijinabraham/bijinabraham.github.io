@@ -45,7 +45,7 @@ export function PortraitSVG({ mode = "elevation" }: { mode?: Mode }) {
             <line x1="300" y1="200" x2="470" y2="120" stroke="var(--accent)" strokeWidth="1" />
             <circle cx="300" cy="200" r="3" fill="var(--accent)" />
             <text x="478" y="112" fontFamily="var(--font-mono)" fontSize="10" letterSpacing="0.12em" fill="var(--dim)">SE MANAGER, AMER</text>
-            <text x="478" y="134" fontFamily="var(--font-fraunces)" fontSize="14" fontStyle="italic" fill="var(--ink-2)">37 SEs · 3 theatres</text>
+            <text x="478" y="134" fontFamily="var(--font-fraunces)" fontSize="14" fontStyle="italic" fill="var(--ink-2)">10 SEs · Americas</text>
           </g>
           <g className={`${styles.fadeIn} ${styles.f3}`}>
             <path d="M 210 260 L 75 260 L 75 232" fill="none" stroke="var(--ink)" strokeWidth="1" />
