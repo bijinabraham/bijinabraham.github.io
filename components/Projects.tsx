@@ -36,20 +36,39 @@ export function Projects() {
               className={`${styles.card} ${isOpen ? styles.open : ""} ${seen ? styles.cardOn : ""}`}
               style={{ transitionDelay: `${i * 0.1}s` }}
             >
-              <button
-                type="button"
+              <div
                 className="head-row"
+                role="button"
+                tabIndex={0}
                 aria-expanded={isOpen}
                 onClick={() => setOpenSlug(isOpen ? null : p.slug)}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter" || e.key === " ") {
+                    e.preventDefault();
+                    setOpenSlug(isOpen ? null : p.slug);
+                  }
+                }}
               >
                 <div className="num">Proj. {p.num}</div>
                 <div>
                   <h3 dangerouslySetInnerHTML={{ __html: p.title }} />
                   <p>{p.description}</p>
                 </div>
-                <div className="status">{p.status}</div>
+                {p.url ? (
+                  <a
+                    href={p.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="status"
+                    onClick={(e) => e.stopPropagation()}
+                  >
+                    {p.status}
+                  </a>
+                ) : (
+                  <div className="status">{p.status}</div>
+                )}
                 <div className="expand">Detail <span className="chev">▾</span></div>
-              </button>
+              </div>
               <div className={styles.detail}>
                 <div className={styles.detailInner}>
                   {Detail ? <Detail /> : null}

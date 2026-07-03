@@ -29,7 +29,7 @@ export const projects: Project[] = [
     num: "02",
     title: "<em>Sculptura</em>",
     description: "Custom foam tool insert manufacturer. Real client. Real revenue.",
-    status: "Live, dsculptura.in",
+    status: "Live · dsculptura.in ↗",
     url: "https://dsculptura.in",
     stack: "Next.js 15 · TypeScript · Sanity · Framer Motion · Vercel · Resend",
     choices: [
@@ -58,7 +58,8 @@ export const projects: Project[] = [
     num: "04",
     title: "Bijin Beyond <em>Borders</em>",
     description: "Personal site fusing travels, adrenaline pursuits, and side work. The playground.",
-    status: "Live, maintained",
+    status: "Live · bijinabraham.github.io/bijin-beyond-borders ↗",
+    url: "https://bijinabraham.github.io/bijin-beyond-borders",
     stack: "Next.js 15 · TypeScript · Framer Motion · Lenis · D3 · Tailwind · CSS Modules",
     choices: [
       "Static Next.js export, zero backend, zero database. Content lives in TypeScript data files.",
