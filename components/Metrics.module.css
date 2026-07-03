@@ -43,7 +43,11 @@
   background: var(--paper);
   padding: 36px 26px;
   position: relative;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
 }
+.cell.on { opacity: 1; transform: none; }
 .cell::before {
   content: "";
   position: absolute;
