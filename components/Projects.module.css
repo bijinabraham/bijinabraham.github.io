@@ -1,0 +1,116 @@
+.section {
+  padding: 120px 40px;
+  border-top: 1px solid var(--hair);
+  background: var(--paper-2);
+  position: relative;
+  z-index: 3;
+}
+.head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 60px;
+  gap: 40px;
+}
+.head h2 {
+  font-family: var(--font-fraunces);
+  font-weight: 400;
+  font-size: clamp(36px, 5vw, 68px);
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+  max-width: 800px;
+}
+.head h2 em { font-style: italic; color: var(--accent); font-weight: 400; }
+.head .meta {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--dim);
+  text-align: right;
+  flex: none;
+}
+
+.list {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.card {
+  background: var(--paper);
+  border: 1px solid var(--hair);
+  position: relative;
+  overflow: hidden;
+}
+.card .head-row {
+  display: grid;
+  grid-template-columns: 180px 1fr 260px 130px;
+  gap: 32px;
+  align-items: center;
+  padding: 28px 32px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+.card .head-row:hover { background: rgba(255, 240, 220, 0.35); }
+.card .num {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  letter-spacing: 0.2em;
+  color: var(--dim);
+  text-transform: uppercase;
+}
+.card h3 {
+  font-family: var(--font-fraunces);
+  font-weight: 500;
+  font-size: 34px;
+  letter-spacing: -0.01em;
+}
+.card h3 em { font-style: italic; color: var(--accent); font-weight: 400; }
+.card .status {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  color: var(--accent);
+  text-transform: uppercase;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.card .status::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  background: var(--accent);
+  border-radius: 50%;
+}
+.card p {
+  font-family: var(--font-fraunces);
+  font-weight: 300;
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--ink-2);
+}
+.card .expand {
+  justify-self: end;
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  letter-spacing: 0.15em;
+  color: var(--dim);
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.card .expand .chev {
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+@media (max-width: 900px) {
+  .head { flex-direction: column; align-items: flex-start; }
+  .head .meta { text-align: left; }
+  .card .head-row { grid-template-columns: 1fr; gap: 12px; }
+  .card .expand { justify-self: start; }
+}
