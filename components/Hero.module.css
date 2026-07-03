@@ -19,7 +19,7 @@
     padding: 140px 20px 60px;
     gap: 40px;
   }
-  .stamp { top: 84px; right: 20px; font-size: 9px; }
+  .stamp { display: none; }
   .body { font-size: 17px; }
   .cta { flex-wrap: wrap; gap: 12px; }
   .btn { padding: 13px 18px; font-size: 11px; }

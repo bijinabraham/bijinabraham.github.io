@@ -3,6 +3,23 @@
 import styles from "./Career.module.css";
 import { useReveal } from "../lib/hooks/useReveal";
 
+type MobileRole = {
+  year: string;
+  company: string;
+  title: string;
+  leadership?: boolean;
+  current?: boolean;
+};
+
+const mobileRoles: MobileRole[] = [
+  { year: "2026", company: "Confluent AMER", title: "Manager, SE", leadership: true, current: true },
+  { year: "2024", company: "Confluent AMER", title: "Team Lead, SE", leadership: true },
+  { year: "2023", company: "Confluent",      title: "Solutions Engineer" },
+  { year: "2022", company: "Deloitte",       title: "Senior Consultant" },
+  { year: "2020", company: "Whatfix",        title: "Senior SE" },
+  { year: "2017", company: "HP Inc.",        title: "Tech Support" },
+];
+
 export function Career() {
   const { ref, seen } = useReveal<HTMLDivElement>();
   const pathClass = `${styles.pathAnim} ${seen ? styles.on : ""}`.trim();
@@ -89,6 +106,30 @@ export function Career() {
           <span className="lg"><span className="sw p" />People and leadership scope</span>
           <span className="lg"><span className="sw t" />Technical depth and IC craft</span>
         </div>
+      </div>
+
+      {/* Mobile-only vertical timeline. Hidden above 640px via CSS. */}
+      <ol className={styles.mobileTimeline} aria-label="Career timeline">
+        {mobileRoles.map((r) => {
+          const cls = [
+            styles.mobileRow,
+            r.leadership ? styles.mobileLead : "",
+            r.current ? styles.mobileCurrent : "",
+          ].filter(Boolean).join(" ");
+          return (
+            <li key={`${r.year}-${r.title}`} className={cls}>
+              <span className={styles.mobileYear}>{r.year}{r.current ? " · Current" : ""}</span>
+              <div className={styles.mobileBody}>
+                <div className={styles.mobileTitle}>{r.title}</div>
+                <div className={styles.mobileCompany}>{r.company}</div>
+              </div>
+            </li>
+          );
+        })}
+      </ol>
+      <div className={styles.mobileLegend} aria-hidden="true">
+        <span className={styles.mobileLegendDot} />
+        People Leadership Scope · since 2024
       </div>
     </section>
   );
