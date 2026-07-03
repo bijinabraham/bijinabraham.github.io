@@ -60,6 +60,38 @@ export function PortraitSVG({ mode = "elevation" }: { mode?: Mode }) {
         </g>
       )}
 
+      {/* SECTION callouts */}
+      {mode === "section" && (
+        <g>
+          <g>
+            <line x1="420" y1="200" x2="540" y2="200" stroke="var(--dim)" strokeWidth="1" />
+            <line x1="420" y1="195" x2="420" y2="205" stroke="var(--dim)" />
+            <line x1="540" y1="195" x2="540" y2="205" stroke="var(--dim)" />
+            <text x="480" y="192" textAnchor="middle" fontFamily="var(--font-mono)" fontSize="10" letterSpacing="0.12em" fill="var(--dim)">
+              3+ YR <tspan fill="var(--ink)" fontWeight="500">CONFLUENT</tspan>
+            </text>
+          </g>
+          <g>
+            <line x1="300" y1="200" x2="470" y2="120" stroke="var(--accent)" strokeWidth="1" />
+            <circle cx="300" cy="200" r="3" fill="var(--accent)" />
+            <text x="478" y="112" fontFamily="var(--font-mono)" fontSize="10" letterSpacing="0.12em" fill="var(--dim)">STREAMING ARCHITECT</text>
+            <text x="478" y="134" fontFamily="var(--font-fraunces)" fontSize="14" fontStyle="italic" fill="var(--ink-2)">Kafka · Flink · CDC</text>
+          </g>
+          <g>
+            <path d="M 210 260 L 75 260 L 75 232" fill="none" stroke="var(--ink)" strokeWidth="1" />
+            <circle cx="210" cy="260" r="3" fill="var(--ink)" />
+            <text x="80" y="230" fontFamily="var(--font-mono)" fontSize="10" letterSpacing="0.12em" fill="var(--dim)">POCS AND WORKSHOPS</text>
+            <text x="80" y="252" fontFamily="var(--font-fraunces)" fontSize="14" fontStyle="italic" fill="var(--ink-2)">code, demo, deliver</text>
+          </g>
+          <g>
+            <line x1="360" y1="300" x2="510" y2="360" stroke="var(--ink)" strokeWidth="1" />
+            <circle cx="360" cy="300" r="3" fill="var(--ink)" />
+            <text x="518" y="352" fontFamily="var(--font-mono)" fontSize="10" letterSpacing="0.12em" fill="var(--dim)">SHIPS WEEKENDS</text>
+            <text x="518" y="374" fontFamily="var(--font-fraunces)" fontSize="14" fontStyle="italic" fill="var(--ink-2)">6 live side projects</text>
+          </g>
+        </g>
+      )}
+
       {/* Title block bottom right */}
       <g>
         <line x1="360" y1="530" x2="580" y2="530" stroke="var(--ink)" strokeWidth="1" />
