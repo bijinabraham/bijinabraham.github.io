@@ -30,9 +30,28 @@ const caveat = Caveat({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://bijinabraham.github.io"),
   title: "Bijin Abraham",
   description:
     "Manager, Solutions Engineering at Confluent. Streaming systems by day, ships product on weekends.",
+  authors: [{ name: "Bijin Abraham" }],
+  openGraph: {
+    title: "Bijin Abraham",
+    description:
+      "Manager, Solutions Engineering at Confluent. Streaming systems by day, ships product on weekends.",
+    url: "https://bijinabraham.github.io",
+    siteName: "Bijin Abraham",
+    type: "website",
+    // images: [{ url: "/og-image.png" }], // TODO: add in Task 6.3
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Bijin Abraham",
+    description:
+      "Manager, Solutions Engineering at Confluent. Streaming systems by day, ships product on weekends.",
+  },
+  robots: { index: true, follow: true },
+  icons: { icon: "/favicon.svg" },
 };
 
 export default function RootLayout({
