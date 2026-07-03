@@ -82,12 +82,11 @@
 }
 @media (max-width: 640px) {
   .section { padding: 64px 16px; }
-  /* Hide desktop SVG chart entirely; the horizontal scroll experience was poor. */
-  .wrap { display: none; }
+  .svg { height: 360px; }
 
-  /* Show the vertical timeline instead */
+  /* Kept for potential future use but not shown; user chose the SVG chart with horizontal scroll. */
   .mobileTimeline {
-    display: block;
+    display: none;
     list-style: none;
     margin: 0 auto;
     padding: 0;
@@ -189,6 +188,6 @@
     background: var(--accent);
     flex: none;
   }
-  .legend { display: none; }
+  .legend { flex-wrap: wrap; gap: 18px; }
 }
 .mobileLegend { display: none; }
