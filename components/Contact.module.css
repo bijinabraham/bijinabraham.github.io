@@ -44,15 +44,15 @@
   border-bottom: 2px solid var(--ink);
   align-items: end;
 }
-.tbhd .name {
+.tbhd :global(.name) {
   font-family: var(--font-fraunces);
   font-weight: 500;
   font-size: 64px;
   letter-spacing: -0.02em;
   line-height: 0.95;
 }
-.tbhd .name em { font-style: italic; color: var(--accent); }
-.tbhd .meta2 {
+.tbhd :global(.name) em { font-style: italic; color: var(--accent); }
+.tbhd :global(.meta2) {
   text-align: right;
   font-family: var(--font-mono);
   font-size: 11px;
@@ -61,7 +61,7 @@
   text-transform: uppercase;
   line-height: 1.9;
 }
-.tbhd .meta2 .v { color: var(--ink); }
+.tbhd :global(.meta2) :global(.v) { color: var(--ink); }
 
 .tbbody { display: grid; grid-template-columns: 1fr 1fr 1fr; }
 .cell {
@@ -69,7 +69,7 @@
   border-right: 1px solid var(--ink);
 }
 .cell:last-child { border-right: none; }
-.cell .k {
+.cell :global(.k) {
   font-family: var(--font-mono);
   font-size: 10px;
   letter-spacing: 0.2em;
@@ -77,18 +77,18 @@
   text-transform: uppercase;
   margin-bottom: 10px;
 }
-.cell .v {
+.cell :global(.v) {
   font-family: var(--font-fraunces);
   font-size: 20px;
   font-weight: 400;
   line-height: 1.35;
 }
-.cell .v a {
+.cell :global(.v) a {
   border-bottom: 1px solid var(--hair);
   transition: border-color 0.2s;
 }
-.cell .v a:hover { border-color: var(--ink); }
-.cell .v .small {
+.cell :global(.v) a:hover { border-color: var(--ink); }
+.cell :global(.v) :global(.small) {
   font-size: 14px;
   color: var(--dim);
   display: block;
@@ -111,14 +111,14 @@
   border-right: 1px solid var(--ink);
 }
 .tbft .cell:last-child { border-right: none; }
-.tbft .cell .lbl { color: var(--dim); margin-right: 8px; }
-.tbft .cell .val { color: var(--ink); }
+.tbft .cell :global(.lbl) { color: var(--dim); margin-right: 8px; }
+.tbft .cell :global(.val) { color: var(--ink); }
 
 @media (max-width: 900px) {
   .head { flex-direction: column; align-items: flex-start; }
   .head .meta { text-align: left; }
   .tbhd { grid-template-columns: 1fr; gap: 20px; }
-  .tbhd .meta2 { text-align: left; }
+  .tbhd :global(.meta2) { text-align: left; }
   .tbbody { grid-template-columns: 1fr; }
   .cell { border-right: none; border-bottom: 1px solid var(--ink); }
   .tbft { grid-template-columns: 1fr; }

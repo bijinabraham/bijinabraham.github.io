@@ -48,7 +48,7 @@
   transition: opacity 0.7s ease, transform 0.7s ease;
 }
 .card.cardOn { opacity: 1; transform: none; }
-.card .head-row {
+.card :global(.head-row) {
   display: grid;
   grid-template-columns: 180px 1fr 260px 130px;
   gap: 32px;
@@ -57,8 +57,8 @@
   cursor: pointer;
   transition: background 0.3s ease;
 }
-.card .head-row:hover { background: rgba(255, 240, 220, 0.35); }
-.card .num {
+.card :global(.head-row):hover { background: rgba(255, 240, 220, 0.35); }
+.card :global(.num) {
   font-family: var(--font-mono);
   font-size: 10.5px;
   letter-spacing: 0.2em;
@@ -72,7 +72,7 @@
   letter-spacing: -0.01em;
 }
 .card h3 em { font-style: italic; color: var(--accent); font-weight: 400; }
-.card .status {
+.card :global(.status) {
   font-family: var(--font-mono);
   font-size: 10px;
   letter-spacing: 0.15em;
@@ -82,7 +82,7 @@
   align-items: center;
   gap: 6px;
 }
-.card .status::before {
+.card :global(.status)::before {
   content: "";
   width: 6px;
   height: 6px;
@@ -96,7 +96,7 @@
   line-height: 1.5;
   color: var(--ink-2);
 }
-.card .expand {
+.card :global(.expand) {
   justify-self: end;
   font-family: var(--font-mono);
   font-size: 10.5px;
@@ -107,13 +107,13 @@
   align-items: center;
   gap: 8px;
 }
-.card .expand .chev {
+.card :global(.expand) :global(.chev) {
   display: inline-block;
   transition: transform 0.3s ease;
 }
-.card.open .expand .chev { transform: rotate(180deg); }
+.card.open :global(.expand) :global(.chev) { transform: rotate(180deg); }
 
-.card .head-row { border: none; background: transparent; width: 100%; text-align: left; font: inherit; color: inherit; }
+.card :global(.head-row) { border: none; background: transparent; width: 100%; text-align: left; font: inherit; color: inherit; }
 
 .detail {
   max-height: 0;
@@ -131,14 +131,14 @@
   border-top: 1px dashed var(--hair-2);
 }
 .detailInner svg { width: 100%; height: auto; }
-.detailInner .arch h4 {
+.detailInner :global(.arch) h4 {
   font-family: var(--font-fraunces);
   font-weight: 500;
   font-size: 16px;
   margin-bottom: 14px;
   letter-spacing: 0.02em;
 }
-.detailInner .arch ul {
+.detailInner :global(.arch) ul {
   list-style: none;
   font-family: var(--font-fraunces);
   font-weight: 300;
@@ -148,11 +148,11 @@
   padding: 0;
   margin: 0;
 }
-.detailInner .arch ul li {
+.detailInner :global(.arch) ul li {
   padding-left: 18px;
   position: relative;
 }
-.detailInner .arch ul li::before {
+.detailInner :global(.arch) ul li::before {
   content: "›";
   position: absolute;
   left: 0;
@@ -171,7 +171,7 @@
 @media (max-width: 900px) {
   .head { flex-direction: column; align-items: flex-start; }
   .head .meta { text-align: left; }
-  .card .head-row { grid-template-columns: 1fr; gap: 12px; }
-  .card .expand { justify-self: start; }
+  .card :global(.head-row) { grid-template-columns: 1fr; gap: 12px; }
+  .card :global(.expand) { justify-self: start; }
   .detailInner { grid-template-columns: 1fr; padding: 8px 20px 24px; }
 }

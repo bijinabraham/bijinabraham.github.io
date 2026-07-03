@@ -42,10 +42,10 @@
   color: var(--dim);
   text-transform: uppercase;
 }
-.legend .lg { display: inline-flex; align-items: center; gap: 10px; }
-.legend .sw { width: 22px; height: 2px; }
-.legend .sw.p { background: var(--accent); }
-.legend .sw.t {
+.legend :global(.lg) { display: inline-flex; align-items: center; gap: 10px; }
+.legend :global(.sw) { width: 22px; height: 2px; }
+.legend :global(.sw.p) { background: var(--accent); }
+.legend :global(.sw.t) {
   background: var(--signal);
   background-image: linear-gradient(90deg, var(--signal) 60%, transparent 60%);
   background-size: 8px 100%;

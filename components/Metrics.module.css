@@ -58,7 +58,7 @@
   border-top: 1px solid var(--dim);
   border-right: 1px solid var(--dim);
 }
-.cell .k {
+.cell :global(.k) {
   font-family: var(--font-mono);
   font-size: 10.5px;
   letter-spacing: 0.15em;
@@ -66,7 +66,7 @@
   text-transform: uppercase;
   margin-bottom: 16px;
 }
-.cell .v {
+.cell :global(.v) {
   font-family: var(--font-fraunces);
   font-size: 56px;
   font-weight: 400;
@@ -74,13 +74,13 @@
   line-height: 0.95;
   color: var(--ink);
 }
-.cell .v em {
+.cell :global(.v) em {
   font-style: italic;
   color: var(--accent);
   font-weight: 400;
   margin-right: 0.08em;
 }
-.cell .n {
+.cell :global(.n) {
   font-family: var(--font-fraunces);
   font-style: italic;
   font-size: 13px;
