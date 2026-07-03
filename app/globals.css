@@ -1,1 +1,91 @@
 @import "tailwindcss";
+
+:root {
+  /* Locked palette: FT Salmon paper + navy ink + oxblood accent */
+  --paper: #fff1e5;
+  --paper-2: #fbe4cf;
+  --paper-3: #f5d3b1;
+  --ink: #0a1929;
+  --ink-2: #152a45;
+  --dim: #6a7688;
+  --hair: #d8c8b3;
+  --hair-2: #e4d5bf;
+  --accent: #8b2818;
+  --accent-2: #5a1a0c;
+  --accent-warm: #a83e26;
+  --signal: #2f7a8c;
+}
+
+/* Alternate palettes (activated via body[data-palette]) */
+body[data-palette="salmon"] {
+  --paper: #fff1e5; --paper-2: #fbe4cf; --paper-3: #f5d3b1;
+  --ink: #0a1929; --ink-2: #152a45; --dim: #6a7688;
+  --hair: #d8c8b3; --hair-2: #e4d5bf;
+  --accent: #a63c00; --accent-2: #6b2400; --accent-warm: #c65b1e;
+  --signal: #2f7a8c;
+}
+body[data-palette="manila"] {
+  --paper: #ecdfba; --paper-2: #dfcf9d; --paper-3: #cebc7f;
+  --ink: #1c1a15; --ink-2: #2f2b1e; --dim: #6b6250;
+  --hair: #b8a878; --hair-2: #c8b988;
+  --accent: #8b2818; --accent-2: #5a1a0c; --accent-warm: #a83e26;
+  --signal: #4a3320;
+}
+body[data-palette="vellum"] {
+  --paper: #fafaf6; --paper-2: #eeeee8; --paper-3: #e0e0d8;
+  --ink: #0d0d0e; --ink-2: #2b2b2b; --dim: #7a7570;
+  --hair: #d1cec4; --hair-2: #e2dfd3;
+  --accent: #1e5f4b; --accent-2: #113a2d; --accent-warm: #3a8a70;
+  --signal: #8a5a2e;
+}
+body[data-palette="steel"] {
+  --paper: #eef2f7; --paper-2: #dde5ee; --paper-3: #cad5e2;
+  --ink: #0f172a; --ink-2: #1e293b; --dim: #64748b;
+  --hair: #b6c0cf; --hair-2: #c8d1de;
+  --accent: #2563eb; --accent-2: #1e40af; --accent-warm: #4f7cff;
+  --signal: #b8481f;
+}
+body[data-palette="prussian"] {
+  --paper: #f4ede0; --paper-2: #e6dcc5; --paper-3: #d8cba8;
+  --ink: #0c1e3a; --ink-2: #182f52; --dim: #5c6a83;
+  --hair: #b8b09a; --hair-2: #c9c1a8;
+  --accent: #003a70; --accent-2: #00224a; --accent-warm: #2b5c94;
+  --signal: #8a6a3e;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-sans), system-ui, sans-serif;
+  overflow-x: hidden;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+::selection {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+/* Grid overlay lives on body::before via a wrapper class so it stays consistent */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  background:
+    radial-gradient(ellipse at 20% 10%, rgba(150, 120, 80, 0.06), transparent 60%),
+    radial-gradient(ellipse at 80% 90%, rgba(120, 80, 50, 0.05), transparent 60%);
+  mix-blend-mode: multiply;
+}
