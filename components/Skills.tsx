@@ -1,6 +1,9 @@
+"use client";
+
 import { Fragment } from "react";
 import { skillCategories, type Skill } from "@/lib/content/skills";
 import styles from "./Skills.module.css";
+import { useReveal } from "@/lib/hooks/useReveal";
 
 function levelClass(skill: Skill, level: 1 | 2 | 3 | 4): string {
   const filled = skill.level >= level;
@@ -10,13 +13,19 @@ function levelClass(skill: Skill, level: 1 | 2 | 3 | 4): string {
 }
 
 export function Skills() {
+  const { ref, seen } = useReveal<HTMLDivElement>();
+  // Compute a running index across all skill rows so stagger delay is
+  // continuous across category groups without also counting the category
+  // header rows (which don't animate).
+  let skillIdx = 0;
+
   return (
     <section className={styles.section} id="skills">
       <div className={styles.head}>
         <h2><em>Material</em> specifications.</h2>
         <div className={styles.meta}>Fig. 04 · Skill depth matrix</div>
       </div>
-      <div className={styles.matrix}>
+      <div className={styles.matrix} ref={ref}>
         <table>
           <caption>L1 exposure · L2 working · L3 production · L4 SME/coach</caption>
           <thead>
@@ -35,20 +44,27 @@ export function Skills() {
                 <tr className={styles.catFirst}>
                   <td className="cat" colSpan={6}>{cat.name}</td>
                 </tr>
-                {cat.skills.map((skill) => (
-                  <tr key={`${cat.name}-${skill.name}`}>
-                    <td className="skill">
-                      {skill.name}
-                      {skill.detail && <em>({skill.detail})</em>}
-                    </td>
-                    {[1, 2, 3, 4].map((l) => (
-                      <td key={l} className={levelClass(skill, l as 1 | 2 | 3 | 4)}>
-                        <div className="box" />
+                {cat.skills.map((skill) => {
+                  const i = skillIdx++;
+                  return (
+                    <tr
+                      key={`${cat.name}-${skill.name}`}
+                      className={`${styles.row} ${seen ? styles.on : ""}`.trim()}
+                      style={{ transitionDelay: `${i * 0.04}s` }}
+                    >
+                      <td className="skill">
+                        {skill.name}
+                        {skill.detail && <em>({skill.detail})</em>}
                       </td>
-                    ))}
-                    <td className="noteTxt">{skill.note}</td>
-                  </tr>
-                ))}
+                      {[1, 2, 3, 4].map((l) => (
+                        <td key={l} className={levelClass(skill, l as 1 | 2 | 3 | 4)}>
+                          <div className="box" />
+                        </td>
+                      ))}
+                      <td className="noteTxt">{skill.note}</td>
+                    </tr>
+                  );
+                })}
               </Fragment>
             ))}
           </tbody>

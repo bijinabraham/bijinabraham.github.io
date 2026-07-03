@@ -56,6 +56,12 @@
 .matrix thead th.notes { text-align: left; width: 280px; }
 .matrix tbody tr { border-bottom: 1px solid var(--hair-2); }
 .matrix tbody tr:hover { background: rgba(255, 240, 220, 0.4); }
+.row {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.row.on { opacity: 1; transform: none; }
 .matrix tbody td { padding: 14px 12px; vertical-align: middle; }
 .matrix .cat {
   font-family: var(--font-mono);

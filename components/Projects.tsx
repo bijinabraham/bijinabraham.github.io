@@ -7,6 +7,7 @@ import { AtlasDetail } from "./projects/AtlasDetail";
 import { SculpturaDetail } from "./projects/SculpturaDetail";
 import { PsychShortsDetail } from "./projects/PsychShortsDetail";
 import { BBBDetail } from "./projects/BBBDetail";
+import { useReveal } from "@/lib/hooks/useReveal";
 
 const detailMap: Record<string, () => ReactElement> = {
   atlas: AtlasDetail,
@@ -17,6 +18,7 @@ const detailMap: Record<string, () => ReactElement> = {
 
 export function Projects() {
   const [openSlug, setOpenSlug] = useState<string | null>(null);
+  const { ref, seen } = useReveal<HTMLDivElement>();
 
   return (
     <section className={styles.section} id="projects">
@@ -24,12 +26,16 @@ export function Projects() {
         <h2>Nights &amp; <em>weekends</em>.</h2>
         <div className={styles.meta}>Fig. 05 · Side work<br />click a row for detail drawing</div>
       </div>
-      <div className={styles.list}>
-        {projects.map((p) => {
+      <div className={styles.list} ref={ref}>
+        {projects.map((p, i) => {
           const isOpen = openSlug === p.slug;
           const Detail = detailMap[p.slug];
           return (
-            <div key={p.slug} className={`${styles.card} ${isOpen ? styles.open : ""}`}>
+            <article
+              key={p.slug}
+              className={`${styles.card} ${isOpen ? styles.open : ""} ${seen ? styles.cardOn : ""}`}
+              style={{ transitionDelay: `${i * 0.1}s` }}
+            >
               <button
                 type="button"
                 className="head-row"
@@ -58,7 +64,7 @@ export function Projects() {
                   </div>
                 </div>
               </div>
-            </div>
+            </article>
           );
         })}
       </div>

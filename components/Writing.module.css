@@ -38,8 +38,11 @@
   padding: 28px 0;
   border-top: 1px solid var(--hair-2);
   cursor: pointer;
-  transition: padding-left 0.35s ease;
+  opacity: 0;
+  transform: translateY(18px);
+  transition: padding-left 0.35s ease, opacity 0.7s ease, transform 0.7s ease;
 }
+.post.postOn { opacity: 1; transform: none; }
 .post:last-child { border-bottom: 1px solid var(--hair-2); }
 .post:hover { padding-left: 18px; }
 .post .date {
