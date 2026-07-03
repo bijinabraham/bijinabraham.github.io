@@ -9,7 +9,6 @@
   align-items: center;
   padding: 22px 40px;
   background: linear-gradient(180deg, var(--paper) 60%, transparent 100%);
-  border-bottom: 1px solid var(--hair);
 }
 .logo {
   font-family: var(--font-fraunces);
