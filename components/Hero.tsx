@@ -27,35 +27,37 @@ export function Hero() {
           <span className="underline" />
         </h1>
 
-        {mode === "elevation" ? (
-          <>
-            <div className={styles.roleLine}>
-              <span className="arrow">▸</span>
-              Manager · Solutions Engineering · Confluent · AMER
-            </div>
-            <p className={styles.body}>
-              7+ years drawing streaming systems for the world&rsquo;s largest data flows, currently leading the Solutions Engineering team for <em>New Logo Acquisition</em> across the Americas. People and pipeline, owned end to end.
-            </p>
-            <div className={styles.cta}>
-              <a href="#work" className={styles.btn}>See the trajectory →</a>
-              <a href="#contact" className={`${styles.btn} ${styles.ghost}`}>Hire me to lead →</a>
-            </div>
-          </>
-        ) : (
-          <>
-            <div className={styles.roleLine}>
-              <span className="arrow">▸</span>
-              Solutions Architect · Kafka · Flink · Streaming Systems
-            </div>
-            <p className={styles.body}>
-              7+ years designing streaming architectures on Confluent and Kafka for the world&rsquo;s biggest enterprises. Ships production systems, writes the code, draws the diagrams, and still runs the <em>demos</em> myself.
-            </p>
-            <div className={styles.cta}>
-              <a href="#projects" className={styles.btn}>See the projects →</a>
-              <a href="#contact" className={`${styles.btn} ${styles.ghost}`}>Hire me to build →</a>
-            </div>
-          </>
-        )}
+        <div key={mode} className={styles.modeContent}>
+          {mode === "elevation" ? (
+            <>
+              <div className={styles.roleLine}>
+                <span className="arrow">▸</span>
+                Manager · Solutions Engineering · Confluent · AMER
+              </div>
+              <p className={styles.body}>
+                7+ years drawing streaming systems for the world&rsquo;s largest data flows, currently leading the Solutions Engineering team for <em>New Logo Acquisition</em> across the Americas. People and pipeline, owned end to end.
+              </p>
+              <div className={styles.cta}>
+                <a href="#work" className={styles.btn}>See the trajectory →</a>
+                <a href="#contact" className={`${styles.btn} ${styles.ghost}`}>Hire me to lead →</a>
+              </div>
+            </>
+          ) : (
+            <>
+              <div className={styles.roleLine}>
+                <span className="arrow">▸</span>
+                Solutions Architect · Kafka · Flink · Streaming Systems
+              </div>
+              <p className={styles.body}>
+                7+ years designing streaming architectures on Confluent and Kafka for the world&rsquo;s biggest enterprises. Ships production systems, writes the code, draws the diagrams, and still runs the <em>demos</em> myself.
+              </p>
+              <div className={styles.cta}>
+                <a href="#projects" className={styles.btn}>See the projects →</a>
+                <a href="#contact" className={`${styles.btn} ${styles.ghost}`}>Hire me to build →</a>
+              </div>
+            </>
+          )}
+        </div>
       </div>
 
       <div className={styles.right}>

@@ -118,6 +118,16 @@
 .btn:hover { background: var(--accent); border-color: var(--accent); }
 .btn.ghost { background: transparent; color: var(--ink); }
 .btn.ghost:hover { background: var(--ink); color: var(--paper); }
+
+/* Mode swap cross-fade. Keyed on `mode` in Hero.tsx so the div remounts
+   and this keyframe replays each time the user flips Elevation/Section. */
+.modeContent {
+  animation: modeIn 0.5s cubic-bezier(0.3, 0.7, 0.2, 1) both;
+}
+@keyframes modeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: none; }
+}
 .right {
   position: relative;
   height: 78vh;
