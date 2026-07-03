@@ -107,10 +107,67 @@
   display: inline-block;
   transition: transform 0.3s ease;
 }
+.card.open .expand .chev { transform: rotate(180deg); }
+
+.card .head-row { border: none; background: transparent; width: 100%; text-align: left; font: inherit; color: inherit; }
+
+.detail {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease;
+}
+.card.open .detail { max-height: 800px; }
+
+.detailInner {
+  padding: 8px 32px 36px;
+  display: grid;
+  grid-template-columns: 1.35fr 1fr;
+  gap: 40px;
+  align-items: start;
+  border-top: 1px dashed var(--hair-2);
+}
+.detailInner svg { width: 100%; height: auto; }
+.detailInner .arch h4 {
+  font-family: var(--font-fraunces);
+  font-weight: 500;
+  font-size: 16px;
+  margin-bottom: 14px;
+  letter-spacing: 0.02em;
+}
+.detailInner .arch ul {
+  list-style: none;
+  font-family: var(--font-fraunces);
+  font-weight: 300;
+  font-size: 14.5px;
+  line-height: 1.7;
+  color: var(--ink-2);
+  padding: 0;
+  margin: 0;
+}
+.detailInner .arch ul li {
+  padding-left: 18px;
+  position: relative;
+}
+.detailInner .arch ul li::before {
+  content: "›";
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+}
+.stack {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--dim);
+  letter-spacing: 0.05em;
+  margin-top: 16px;
+  padding-top: 12px;
+  border-top: 1px dashed var(--hair-2);
+}
 
 @media (max-width: 900px) {
   .head { flex-direction: column; align-items: flex-start; }
   .head .meta { text-align: left; }
   .card .head-row { grid-template-columns: 1fr; gap: 12px; }
   .card .expand { justify-self: start; }
+  .detailInner { grid-template-columns: 1fr; padding: 8px 20px 24px; }
 }
