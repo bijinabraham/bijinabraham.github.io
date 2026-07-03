@@ -12,7 +12,7 @@ type MobileRole = {
 };
 
 const mobileRoles: MobileRole[] = [
-  { year: "2026", company: "Confluent × IBM · Aug 2026", title: "Manager, SE", leadership: true, current: true },
+  { year: "2026", company: "Confluent × IBM", title: "Manager, SE", leadership: true, current: true },
   { year: "2024", company: "Confluent AMER", title: "Team Lead, SE", leadership: true },
   { year: "2023", company: "Confluent",      title: "Solutions Engineer" },
   { year: "2022", company: "Deloitte",       title: "Senior Consultant" },
@@ -82,7 +82,7 @@ export function Career() {
           <g>
             <circle cx="1020" cy="40" r="9" fill="var(--accent)" stroke="var(--accent)" strokeWidth="1.5" />
             <text x="1035" y="22" fontFamily="var(--font-fraunces)" fontSize="18" fontWeight="500" fill="var(--accent)">Manager, SE</text>
-            <text x="1035" y="6" fontFamily="var(--font-mono)" fontSize="10" letterSpacing="0.1em" fill="var(--dim)">Confluent × IBM · Aug 2026</text>
+            <text x="1035" y="6" fontFamily="var(--font-mono)" fontSize="10" letterSpacing="0.1em" fill="var(--dim)">Confluent × IBM · Current</text>
           </g>
 
           {/* Y axis annotations */}
@@ -118,7 +118,7 @@ export function Career() {
           ].filter(Boolean).join(" ");
           return (
             <li key={`${r.year}-${r.title}`} className={cls}>
-              <span className={styles.mobileYear}>{r.year}</span>
+              <span className={styles.mobileYear}>{r.year}{r.current ? " · Current" : ""}</span>
               <div className={styles.mobileBody}>
                 <div className={styles.mobileTitle}>{r.title}</div>
                 <div className={styles.mobileCompany}>{r.company}</div>
