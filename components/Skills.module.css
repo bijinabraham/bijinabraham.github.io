@@ -1,0 +1,115 @@
+.section {
+  padding: 120px 40px;
+  border-top: 1px solid var(--hair);
+  position: relative;
+  z-index: 3;
+}
+.head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 60px;
+  gap: 40px;
+}
+.head h2 {
+  font-family: var(--font-fraunces);
+  font-weight: 400;
+  font-size: clamp(36px, 5vw, 68px);
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+  max-width: 800px;
+}
+.head h2 em { font-style: italic; color: var(--accent); font-weight: 400; }
+.head .meta {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--dim);
+  text-align: right;
+  flex: none;
+}
+
+.matrix { max-width: 1200px; margin: 0 auto; }
+.matrix table { width: 100%; border-collapse: collapse; }
+.matrix caption {
+  text-align: left;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  color: var(--dim);
+  text-transform: uppercase;
+  margin-bottom: 14px;
+}
+.matrix thead th {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--dim);
+  text-align: left;
+  padding: 10px 12px;
+  border-bottom: 1.5px solid var(--ink);
+  font-weight: 400;
+}
+.matrix thead th.level { text-align: center; width: 60px; }
+.matrix thead th.notes { text-align: left; width: 280px; }
+.matrix tbody tr { border-bottom: 1px solid var(--hair-2); }
+.matrix tbody tr:hover { background: rgba(255, 240, 220, 0.4); }
+.matrix tbody td { padding: 14px 12px; vertical-align: middle; }
+.matrix .cat {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--accent);
+  font-weight: 500;
+  padding-top: 26px;
+}
+.matrix .catFirst td { padding-top: 22px; }
+.matrix .skill {
+  font-family: var(--font-fraunces);
+  font-size: 17px;
+  font-weight: 400;
+  color: var(--ink);
+}
+.matrix .skill em { font-style: italic; color: var(--dim); font-size: 12px; margin-left: 8px; }
+.matrix .cell { text-align: center; position: relative; }
+.matrix .cell .box {
+  width: 22px;
+  height: 22px;
+  margin: 0 auto;
+  border: 1.2px solid var(--ink);
+  position: relative;
+  background: var(--paper);
+}
+.matrix .cell.filled .box { background: var(--ink); }
+.matrix .cell.filled.accent .box { background: var(--accent); border-color: var(--accent); }
+.matrix .noteTxt {
+  font-family: var(--font-fraunces);
+  font-style: italic;
+  font-size: 13.5px;
+  color: var(--dim);
+}
+
+.lvlKey {
+  display: flex;
+  gap: 22px;
+  justify-content: flex-end;
+  margin-top: 22px;
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--dim);
+}
+.lvlKey .k { display: inline-flex; gap: 8px; align-items: center; }
+.lvlKey .swatch { width: 14px; height: 14px; border: 1px solid var(--ink); }
+.lvlKey .swatch.f { background: var(--ink); }
+.lvlKey .swatch.a { background: var(--accent); border-color: var(--accent); }
+
+@media (max-width: 900px) {
+  .head { flex-direction: column; align-items: flex-start; }
+  .head .meta { text-align: left; }
+  .lvlKey { flex-wrap: wrap; justify-content: flex-start; }
+}
