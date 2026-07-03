@@ -51,3 +51,16 @@
 .menu li a:hover {
   color: var(--ink);
 }
+
+@media (max-width: 900px) {
+  .nav { padding: 16px 20px; }
+  .mid { gap: 16px; }
+  .menu { gap: 18px; }
+}
+
+@media (max-width: 640px) {
+  .nav { padding: 14px 16px; }
+  .menu { display: none; }
+  .logo { font-size: 18px; }
+  .mid { gap: 0; }
+}

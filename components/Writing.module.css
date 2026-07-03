@@ -78,8 +78,16 @@
 }
 
 @media (max-width: 900px) {
+  .section { padding: 80px 20px; }
   .head { flex-direction: column; align-items: flex-start; }
   .head .meta { text-align: left; }
   .post { grid-template-columns: 1fr; gap: 8px; }
   .post :global(.tag) { text-align: left; }
+}
+
+@media (max-width: 640px) {
+  .section { padding: 64px 16px; }
+  .post { padding: 22px 0; }
+  .post h3 { font-size: 22px; }
+  .post:hover { padding-left: 0; }
 }

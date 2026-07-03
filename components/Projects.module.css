@@ -130,7 +130,7 @@
   align-items: start;
   border-top: 1px dashed var(--hair-2);
 }
-.detailInner svg { width: 100%; height: auto; }
+.detailInner svg { width: 100%; height: auto; max-width: 100%; display: block; }
 .detailInner :global(.arch) h4 {
   font-family: var(--font-fraunces);
   font-weight: 500;
@@ -169,9 +169,18 @@
 }
 
 @media (max-width: 900px) {
+  .section { padding: 80px 20px; }
   .head { flex-direction: column; align-items: flex-start; }
   .head .meta { text-align: left; }
-  .card :global(.head-row) { grid-template-columns: 1fr; gap: 12px; }
+  .card :global(.head-row) { grid-template-columns: 1fr; gap: 12px; padding: 22px 22px; }
   .card :global(.expand) { justify-self: start; }
   .detailInner { grid-template-columns: 1fr; padding: 8px 20px 24px; }
+}
+
+@media (max-width: 640px) {
+  .section { padding: 64px 16px; }
+  .card :global(.head-row) { padding: 20px 18px; }
+  .card h3 { font-size: 26px; }
+  .card.open .detail { max-height: 2000px; }
+  .detailInner { padding: 8px 16px 20px; gap: 24px; }
 }

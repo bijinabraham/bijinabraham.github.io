@@ -38,3 +38,9 @@
   color: var(--ink);
   background: var(--paper-3);
 }
+
+@media (max-width: 640px) {
+  .toggle { font-size: 9.5px; letter-spacing: 0.1em; }
+  .lbl { padding: 7px 8px 7px 10px; }
+  .toggle button { padding: 7px 10px; }
+}

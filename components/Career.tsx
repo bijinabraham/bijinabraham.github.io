@@ -14,7 +14,7 @@ export function Career() {
         <div className={styles.meta}>Fig. 02 · Timeline<br />1cm = 1yr</div>
       </div>
       <div className={styles.wrap} ref={ref}>
-        <svg viewBox="0 -40 1200 600" preserveAspectRatio="none" className={styles.svg}>
+        <svg viewBox="0 -40 1200 600" preserveAspectRatio="xMidYMid meet" className={styles.svg}>
           {/* baseline */}
           <line x1="80" y1="480" x2="1120" y2="480" stroke="var(--hair)" />
           {/* year ticks */}

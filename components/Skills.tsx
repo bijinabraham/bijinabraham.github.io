@@ -26,6 +26,7 @@ export function Skills() {
         <div className={styles.meta}>Fig. 04 · Skill depth matrix</div>
       </div>
       <div className={styles.matrix} ref={ref}>
+        <div className={styles.tableWrap}>
         <table>
           <caption>L1 exposure · L2 working · L3 production · L4 SME/coach</caption>
           <thead>
@@ -69,6 +70,7 @@ export function Skills() {
             ))}
           </tbody>
         </table>
+        </div>
         <div className={styles.lvlKey}>
           <span className="k"><span className="swatch" /> empty · not yet</span>
           <span className="k"><span className="swatch f" /> filled · at this level</span>

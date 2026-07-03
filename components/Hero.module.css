@@ -11,8 +11,18 @@
 @media (max-width: 900px) {
   .hero {
     grid-template-columns: 1fr;
-    padding-top: 180px;
+    padding: 180px 40px 60px;
   }
+}
+@media (max-width: 640px) {
+  .hero {
+    padding: 140px 20px 60px;
+    gap: 40px;
+  }
+  .stamp { top: 84px; right: 20px; font-size: 9px; }
+  .body { font-size: 17px; }
+  .cta { flex-wrap: wrap; gap: 12px; }
+  .btn { padding: 13px 18px; font-size: 11px; }
 }
 .stamp {
   position: absolute;
@@ -132,4 +142,10 @@
   position: relative;
   height: 78vh;
   min-height: 600px;
+}
+@media (max-width: 900px) {
+  .right { height: 460px; min-height: 0; }
+}
+@media (max-width: 640px) {
+  .right { height: 360px; min-height: 0; }
 }
