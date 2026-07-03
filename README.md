@@ -1,19 +1,50 @@
 # bijinabraham.github.io
 
-Personal portfolio site for Bijin Abraham. Live at [bijinabraham.github.io](https://bijinabraham.github.io).
+Personal portfolio site for Bijin Abraham.
 
-## Direction
+**Live:** [bijinabraham.github.io](https://bijinabraham.github.io)
 
-**Blueprint** &middot; editorial + technical drawing. Warm paper canvas (FT Salmon), deep navy ink, oxblood accent. Dual positioning (Manager + IC) via an elevation/section view toggle in the nav.
+## Design
+
+Editorial + technical drawing. Warm paper canvas, deep navy ink, oxblood accent. Every diagram (hero portrait, career trajectory, skills matrix, project architectures) is drawn as inline SVG in the site&rsquo;s own visual language.
+
+The site holds two positioning modes behind a single toggle in the nav:
+- **Elevation** &middot; the outside view. Manager scope, pipeline, people leadership.
+- **Section** &middot; the inside view. IC craft, streaming architecture, code.
+
+Same substance, different framing.
 
 ## Stack
 
-- Next.js 16 (App Router, static export)
-- TypeScript
-- Tailwind CSS 4 + CSS Modules
-- Framer Motion 11
-- `next/font` for Fraunces, JetBrains Mono, Inter, Caveat
-- Inline SVG for all diagrams
+- **[Next.js 16](https://nextjs.org)** with the App Router, static export (`output: "export"`)
+- **TypeScript** (strict)
+- **Tailwind CSS 4** + CSS Modules
+- **Framer Motion 11** for orchestrated transitions
+- **`next/font`** for Fraunces, JetBrains Mono, Inter, Caveat
+- Inline SVG for every diagram (no chart library)
+- **Vitest** + Testing Library for the small logic surface
+
+## Structure
+
+```
+app/
+  layout.tsx        root layout, fonts, metadata
+  page.tsx          composes every section
+  globals.css       palette tokens, base resets
+
+components/
+  Nav, Hero, Career, Metrics, Skills,
+  Projects, Writing, Contact, Footer
+  hero/PortraitSVG.tsx      abstract portrait with mode callouts
+  projects/*Detail.tsx      one architecture SVG per project
+
+lib/
+  content/          typed data files (single source of truth for site copy)
+  hooks/            useMode, usePalette, useReveal, SiteStateProvider
+
+.github/workflows/
+  deploy.yml        build + deploy via official GitHub Pages actions
+```
 
 ## Local development
 
@@ -22,28 +53,26 @@ npm install
 NODE_OPTIONS='' npx next dev
 ```
 
-Open http://localhost:3000.
+Open [http://localhost:3000](http://localhost:3000).
 
 ## Build
 
 ```bash
-npm run build
-```
-
-Static export lands in `out/`.
-
-## Tests
-
-```bash
-npm test
+npm run build     # static export to out/
+npm test          # Vitest suite (data + hook logic)
 ```
 
 ## Deploy
 
-Pushes to `main` trigger `.github/workflows/deploy.yml`, which builds the site and deploys via the official Pages action. Live at `https://bijinabraham.github.io`.
+Every push to `main` triggers `.github/workflows/deploy.yml`, which builds the site and publishes via `actions/deploy-pages@v4`. The live URL is [bijinabraham.github.io](https://bijinabraham.github.io).
 
 ## Conventions
 
-- No em or en dashes anywhere in user-facing copy. Periods, commas, colons, or middle dots.
-- Palette is locked; alternate palettes exist in `app/globals.css` under `body[data-palette=...]` but the switcher UI is not rendered in production.
-- Section content lives in typed data files under `lib/content/`.
+- No em or en dashes in user-facing copy. Use periods, commas, colons, or middle dots.
+- Palette is locked in production. Alternate palettes exist as `body[data-palette=...]` overrides in `globals.css` and a dormant `PaletteSwitcher` component is available for design exploration.
+- Content lives in `lib/content/*.ts`. Editing copy never requires touching component code.
+- Reveals use one shared `useReveal` (IntersectionObserver, fires once). No scroll-linked animations.
+
+## License
+
+[MIT](LICENSE)
