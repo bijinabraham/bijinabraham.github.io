@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Fraunces, JetBrains_Mono, Inter, Caveat } from "next/font/google";
 import { GridOverlay } from "@/components/GridOverlay";
+import { Crosshair } from "@/components/Crosshair";
 import "./globals.css";
 
 const fraunces = Fraunces({
@@ -45,6 +46,7 @@ export default function RootLayout({
       <body>
         <GridOverlay />
         {children}
+        <Crosshair />
       </body>
     </html>
   );

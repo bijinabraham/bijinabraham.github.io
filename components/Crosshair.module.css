@@ -1,0 +1,28 @@
+.wrap {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 100;
+  mix-blend-mode: multiply;
+}
+.h {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: var(--ink);
+  opacity: 0.28;
+}
+.v {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: var(--ink);
+  opacity: 0.28;
+}
+
+/* Hide crosshair on touch devices */
+@media (hover: none), (pointer: coarse) {
+  .wrap { display: none; }
+}
