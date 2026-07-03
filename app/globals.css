@@ -89,3 +89,13 @@ body::before {
     radial-gradient(ellipse at 80% 90%, rgba(120, 80, 50, 0.05), transparent 60%);
   mix-blend-mode: multiply;
 }
+
+.grid-overlay {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 2;
+  background:
+    linear-gradient(90deg, rgba(120, 100, 70, 0.055) 1px, transparent 1px) 0 0 / 80px 80px,
+    linear-gradient(180deg, rgba(120, 100, 70, 0.055) 1px, transparent 1px) 0 0 / 80px 80px;
+}

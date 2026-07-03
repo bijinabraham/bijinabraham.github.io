@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Fraunces, JetBrains_Mono, Inter, Caveat } from "next/font/google";
+import { GridOverlay } from "@/components/GridOverlay";
 import "./globals.css";
 
 const fraunces = Fraunces({
@@ -41,7 +42,10 @@ export default function RootLayout({
       lang="en"
       className={`${fraunces.variable} ${jetbrains.variable} ${inter.variable} ${caveat.variable}`}
     >
-      <body>{children}</body>
+      <body>
+        <GridOverlay />
+        {children}
+      </body>
     </html>
   );
 }
