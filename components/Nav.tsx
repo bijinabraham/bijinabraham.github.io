@@ -3,10 +3,9 @@
 import styles from "./Nav.module.css";
 import { useSiteState } from "@/lib/hooks/SiteStateProvider";
 import { ViewToggle } from "./ViewToggle";
-import { PaletteSwitcher } from "./PaletteSwitcher";
 
 export function Nav() {
-  const { mode, setMode, palette, setPalette } = useSiteState();
+  const { mode, setMode } = useSiteState();
 
   return (
     <nav className={styles.nav} aria-label="Primary">
@@ -22,7 +21,6 @@ export function Nav() {
           <li><a href="#contact">Contact</a></li>
         </ul>
         <ViewToggle mode={mode} onChange={setMode} />
-        <PaletteSwitcher palette={palette} onChange={setPalette} />
       </div>
     </nav>
   );
