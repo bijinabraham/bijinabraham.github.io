@@ -1,0 +1,42 @@
+.toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0;
+  border: 1px solid var(--ink);
+  background: var(--paper);
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  overflow: hidden;
+}
+.lbl {
+  padding: 9px 12px 9px 14px;
+  color: var(--dim);
+  border-right: 1px solid var(--hair);
+  background: var(--paper-2);
+}
+.swatches {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 10px;
+}
+.sw {
+  width: 22px;
+  height: 22px;
+  border: 1px solid var(--ink);
+  padding: 0;
+  cursor: pointer;
+  border-radius: 50%;
+  background: currentColor;
+  position: relative;
+  transition: transform 0.2s ease;
+}
+.sw:hover {
+  transform: scale(1.12);
+}
+.sw.active {
+  outline: 2px solid var(--ink);
+  outline-offset: 2px;
+}
