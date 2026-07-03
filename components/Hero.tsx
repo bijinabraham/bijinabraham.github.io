@@ -1,4 +1,5 @@
 import styles from "./Hero.module.css";
+import { PortraitSVG } from "./hero/PortraitSVG";
 
 export function Hero() {
   return (
@@ -33,7 +34,7 @@ export function Hero() {
       </div>
 
       <div className={styles.right}>
-        {/* PortraitSVG goes here in Task 2.4 */}
+        <PortraitSVG mode="elevation" />
       </div>
     </section>
   );
